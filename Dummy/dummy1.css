@@ -1,0 +1,19 @@
+.container{
+    height: 100vh;
+    background-size: cover;
+}
+.card
+{
+    text-align: center;
+    padding: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+button{
+    width:100px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(77, 77, 184);
+    color: white;
+    border-width: 0px ;
+}

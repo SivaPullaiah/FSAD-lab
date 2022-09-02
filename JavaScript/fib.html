@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Fibanocci serice for given number
+        </title>
+    </head>
+    <body>
+        <h1>Fibanocci serice for given number</h1>
+        <script type = "text/javascript">
+            function fibonacci(num)
+            {
+                var num1=0;
+                var num2=1;
+                var sum;
+                var i=0;
+                document.write(num1+" ");
+                for (i = 1; i <= num; i++)
+                {
+                    sum=num1+num2;
+                    num1=num2;
+                    num2=sum;
+                    document.write(" "+sum+" ");
+                }
+                return num2;
+            }
+            fibonacci(prompt("Enter your fib number: "+"<br>"));
+            </script>
+            
+    </body>
+</html>
