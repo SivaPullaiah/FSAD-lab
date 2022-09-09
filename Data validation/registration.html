@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Java script sample registration form validation</title>
+        <script type="text/javascript">
+            function formvalidation()
+            {
+                var uid = document.form1.userid;
+                var passid = document.form1.passid;
+                var uname = document.form1.username;
+                var uadd = document.form1.address;
+                var ucountry = document.form1.country;
+                var uzip = document.form1.zip;
+                var uemail = document.form1.email;
+                var umg = document.form1.mg;
+                var ufg = document.form1.fg;
+                if(userid_validation(uid, 5, 12))
+                {
+                    if(passid_validation(passid, 7, 12))
+                    {
+                        if(allLetters(uname))
+                        {
+                            if(alphanumeric(uadd))
+                            {
+                                if(allnumaric(uzip))
+                                {
+                                    if(validateEmail(uemail))
+                                    {
+                                        if(countryselect(ucountry))
+                                        {
+                                            if(validateGender(umg, ufg))
+                                            {
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return false;
+            }
+
+            function userid_validation(uid, mx, my)
+            {
+                var ulen = uid.value.length;
+                if(ulen==0 || ulen>=my || ulen < mx)
+                {
+                    alert("user id should not be empty / length between "+mx+" to "+my);
+                    uid.focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            function passid_validation(passid, mx, my)
+            {
+                var plen = passid.value.length;
+                if(plen==0 || plen>=my || plen < mx)
+                {
+                    alert("Password should not be empty / length between "+mx+" to "+my);
+                    passid.focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            function allLetters(uname)
+            {
+                var letters = /^[A-Za-z]+$/;
+                if(uname.value.match(letters))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Name should be mandatory / Alphabets only");
+                    uname.focus()
+                    return false;
+                }
+            }
+            function alphanumeric(uadd)
+            {
+                var letters = /^[A-Za-z0-9'\.\-\s\,]+$/;
+                if(uadd.value.match(letters))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Please input AlphaNumaric characters only");
+                    uadd.focus()
+                    return false;
+                }
+            }
+            function allnumaric(uzip)
+            {
+                var letters = /^[0-9]+$/;
+                if(uzip.value.match(letters))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Please input Numaric only");
+                    uzip.focus()
+                    return false;
+                }
+            }
+            function validateEmail(uemail)
+            {
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(uemail.value.match(mailformat))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Enter valid mail id");
+                    uemail.focus()
+                    return false;
+                }
+            }
+            function countryselect(ucountry)
+            {
+                if(ucountry.value=="default")
+                {
+                    alert("Select your country from the list");
+                    ucountry.focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            function validateGender(umg, ufg)
+            {
+                var x=0;
+                if(umg.checked)
+                {
+                    x++;
+                }
+                if(ufg.checked)
+                {
+                    x++;
+                }
+                if(x==0)
+                {
+                    alert("Select gender Male/ Female");
+                    umg.focus();
+                    return false;
+                }
+                else{
+                    alert("Form Successfully Submited");
+                    return true;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form name="form1" onsubmit="return formvalidation()">
+            <table width="500" cellpadding="3" style="dorder-collapse: collapse">
+                <tr>
+                    <td>UserId</td>
+                    <td> <input type="text" name="userid" size="12"/> </td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td> <input type="text" name="passid" size="12"/> </td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td> <input type="text" name="username" size="50"/> </td>
+                </tr>
+                <tr>
+                    <td>Adress</td>
+                    <td> <input type="text" name="address" size="50"/> </td>
+                </tr>
+                <tr>
+                    <td>ZipCode</td>
+                    <td> <input type="text" name="zip"/> </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td> <input type="email" name="email" size="50"/> </td>
+                </tr>
+                <tr>
+                    <td>Select country</td>
+                    <td>
+                        <select name="country">
+                            <option value="default">(Please select a country)</option>
+                            <option value="">Australia</option>
+                            <option value="">Belzium</option>
+                            <option value="">India</option>
+                            <option value="">Russia</option>
+                            <option value="">USA</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender </td>
+                    <td>
+                    <input type="radio" name="mg" value="male"> Male
+                    <input type="radio" name="fg" value="female"> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Language Preferance</td>
+                    <td>
+                        <input type="checkbox" name="en" value="en" checked/>English
+                        <input type="checkbox" name="nonen" value="noen"/>Non English
+                    </td>
+                </tr>
+                <tr>
+                    <td>Write about your self(optional)</td>
+                    <td>
+                        <textarea name="desc" id="" cols="40" rows="4"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="submit" name="submit" value="submit"/>
+                    </td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>
