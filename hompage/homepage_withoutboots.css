@@ -1,0 +1,28 @@
+.homepag {
+
+}
+.navigation {
+    align-items: center;
+    background-color: #00000000;
+}
+.nav-image {
+    margin-top: 20px;
+    margin-left: 50px;
+    height: 65px;
+    width: 65px;
+}
+.page-link {
+    margin: 50px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 600;
+}
+.page-link:hover{
+    //box-shadow: 5px 5px 10px #c99aff;
+    text-align: center;
+    color: blueviolet;
+    //background-color: #c99aff;
+    //margin: auto;
+    //border-radius: 20px;
+    //width: 100px;
+}
