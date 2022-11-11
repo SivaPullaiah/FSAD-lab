@@ -1,0 +1,10 @@
+<web-app>
+    <servlet>
+        <servlet-name>dateserv</servlet-name>
+        <servlet-class>DateServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dateserv</servlet-name>
+        <url-pattern>/dserv</url-pattern>
+    </servlet-mapping>
+</web-app>
